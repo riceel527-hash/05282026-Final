@@ -4,8 +4,9 @@
 async function main () {
  const users = await fetch("https://jsonplaceholder.typicode.com/users");
  const usersData = await users.json();
- console.log(
- usersData.map(
+ const userListEl = document.querySelector(".user-list");
+
+ userListEl.innerHTML = usersData.map(
     (user) =>`<div class="user-card">
     <div class="user-card__container">
       <h3>User's Name</h4>
@@ -15,7 +16,7 @@ async function main () {
     </div>
     </div>`
           )
-          .join(""));
+          .join("");
 }
 
 main ();
